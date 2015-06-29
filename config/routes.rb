@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :factures
-
-  resources :reservations
-
-  resources :rooms
+  resources :factures, defaults: { format: 'json' }
+  resources :reservations, defaults: { format: 'json' }
+  resources :rooms, defaults: { format: 'json' }
 
   root to: 'home#index'
 

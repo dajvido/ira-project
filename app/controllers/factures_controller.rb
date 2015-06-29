@@ -69,6 +69,10 @@ class FacturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def facture_params
-      params.require(:facture).permit(:firm, :address, :nip, :bank, :bank_account_nr, :city)
+      begin
+        params.require(:facture).permit(:firm, :address, :nip, :bank, :bank_account_nr, :city)
+      rescue
+        params[:facture] = params.permit(:firm, :address, :nip, :bank, :bank_account_nr, :city)
+      end
     end
 end

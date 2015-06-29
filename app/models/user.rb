@@ -27,4 +27,6 @@ class User < ActiveRecord::Base
 
   has_one :reservation
   has_one :facture, :through => :reservation
+
+  validates :name, :surname, presence: true
 end

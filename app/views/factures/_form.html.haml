@@ -1,0 +1,28 @@
+= form_for @facture do |f|
+  - if @facture.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@facture.errors.count, "error")} prohibited this facture from being saved:"
+      %ul
+        - @facture.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :firm
+    = f.text_field :firm
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :nip
+    = f.text_field :nip
+  .field
+    = f.label :bank
+    = f.text_field :bank
+  .field
+    = f.label :bank_account_nr
+    = f.text_field :bank_account_nr
+  .field
+    = f.label :city
+    = f.text_field :city
+  .actions
+    = f.submit 'Save'

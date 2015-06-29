@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629091749) do
+ActiveRecord::Schema.define(version: 20150629092217) do
+
+  create_table "factures", force: :cascade do |t|
+    t.string   "firm"
+    t.string   "address"
+    t.string   "nip"
+    t.string   "bank"
+    t.string   "bank_account_nr"
+    t.string   "city"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "stay"

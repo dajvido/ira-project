@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Firm:
+  = @facture.firm
+%p
+  %b Address:
+  = @facture.address
+%p
+  %b Nip:
+  = @facture.nip
+%p
+  %b Bank:
+  = @facture.bank
+%p
+  %b Bank account nr:
+  = @facture.bank_account_nr
+%p
+  %b City:
+  = @facture.city
+
+= link_to 'Edit', edit_facture_path(@facture)
+\|
+= link_to 'Back', factures_path

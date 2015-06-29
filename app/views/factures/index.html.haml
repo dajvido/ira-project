@@ -1,0 +1,31 @@
+%h1 Listing factures
+
+%table
+  %thead
+    %tr
+      %th Firm
+      %th Address
+      %th Nip
+      %th Bank
+      %th Bank account nr
+      %th City
+      %th
+      %th
+      %th
+
+  %tbody
+    - @factures.each do |facture|
+      %tr
+        %td= facture.firm
+        %td= facture.address
+        %td= facture.nip
+        %td= facture.bank
+        %td= facture.bank_account_nr
+        %td= facture.city
+        %td= link_to 'Show', facture
+        %td= link_to 'Edit', edit_facture_path(facture)
+        %td= link_to 'Destroy', facture, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Facture', new_facture_path

@@ -1,6 +1,7 @@
 class CreateFactures < ActiveRecord::Migration
   def change
     create_table :factures do |t|
+      t.belongs_to :reservation, index:true
       t.string :firm
       t.string :address
       t.string :nip

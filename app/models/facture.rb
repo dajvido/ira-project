@@ -1,4 +1,6 @@
 class Facture < ActiveRecord::Base
+  belongs_to :reservation
+
   default_value_for :firm, 'Hotel La Ira'
   default_value_for :address, '60-682 Poznań, Mickiewicza 13'
   default_value_for :nip, '123-45-67-819'

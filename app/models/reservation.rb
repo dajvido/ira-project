@@ -15,4 +15,6 @@ class Reservation < ActiveRecord::Base
   has_one :facture
 
   default_value_for :stay, 1
+
+  validates :user_id, :room_id, presence: true
 end

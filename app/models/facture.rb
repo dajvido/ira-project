@@ -23,4 +23,6 @@ class Facture < ActiveRecord::Base
   default_value_for :bank, 'PECAJO'
   default_value_for :bank_account_nr, '12-1234-1234-4321-4321-4321-4321'
   default_value_for :city, 'Poznań'
+
+  validates :reservation_id, presence: true
 end

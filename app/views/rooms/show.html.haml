@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Occupancy:
+  = @room.occupancy
+%p
+  %b Bathroom:
+  = @room.bathroom
+%p
+  %b Price:
+  = @room.price
+%p
+  %b Standard:
+  = @room.standard
+
+= link_to 'Edit', edit_room_path(@room)
+\|
+= link_to 'Back', rooms_path

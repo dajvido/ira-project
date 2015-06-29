@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: rooms
+#
+#  id         :integer          not null, primary key
+#  occupancy  :integer
+#  bathroom   :boolean
+#  price      :float
+#  standard   :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Room < ActiveRecord::Base
   has_many :reservations
 

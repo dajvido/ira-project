@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: factures
+#
+#  id              :integer          not null, primary key
+#  reservation_id  :integer
+#  firm            :string
+#  address         :string
+#  nip             :string
+#  bank            :string
+#  bank_account_nr :string
+#  city            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class Facture < ActiveRecord::Base
   belongs_to :reservation
 

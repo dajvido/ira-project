@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150629123906) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "factures", force: :cascade do |t|
     t.integer  "reservation_id"
     t.string   "firm"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150629123906) do
     t.float    "price"
   end
 
-  add_index "factures", ["reservation_id"], name: "index_factures_on_reservation_id"
+  add_index "factures", ["reservation_id"], name: "index_factures_on_reservation_id", using: :btree
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
@@ -36,8 +39,8 @@ ActiveRecord::Schema.define(version: 20150629123906) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "reservations", ["room_id"], name: "index_reservations_on_room_id"
-  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
+  add_index "reservations", ["room_id"], name: "index_reservations_on_room_id", using: :btree
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
 
   create_table "rooms", force: :cascade do |t|
     t.integer  "occupancy"

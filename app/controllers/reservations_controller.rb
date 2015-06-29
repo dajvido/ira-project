@@ -27,7 +27,11 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
 
     respond_to do |format|
-      if @reservation.save
+      if Room.find_by_id(@reservation.room_id).nil?
+        format.json {render json: { errors: "Invalid room id" }, status: :unprocessable_entity}
+      elsif User.find_by_id(@reservation.user_id).nil?
+        format.json {render json: { errors: "Invalid user id" }, status: :unprocessable_entity}
+      elsif @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else
@@ -72,7 +76,7 @@ class ReservationsController < ApplicationController
       begin
         params.require(:reservation).permit(:stay)
       rescue
-        params[:reservation] = params.permit(:stay)
+        params[:reservation] = params.permit(:stay, :room_id, :user_id)
       end
     end
 end

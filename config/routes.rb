@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
+
+  resources :users, defaults: { format: 'json' }
   resources :factures, defaults: { format: 'json' }
   resources :reservations, defaults: { format: 'json' }
   resources :rooms, defaults: { format: 'json' }

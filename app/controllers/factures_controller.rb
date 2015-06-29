@@ -25,6 +25,7 @@ class FacturesController < ApplicationController
   # POST /factures.json
   def create
     @facture = Facture.new(facture_params)
+    @facture.price = @facture.reservation.stay * Room.find_by_id(@facture.reservation.room_id).price
 
     respond_to do |format|
       if @facture.save
@@ -72,7 +73,7 @@ class FacturesController < ApplicationController
       begin
         params.require(:facture).permit(:firm, :address, :nip, :bank, :bank_account_nr, :city)
       rescue
-        params[:facture] = params.permit(:firm, :address, :nip, :bank, :bank_account_nr, :city)
+        params[:facture] = params.permit(:firm, :address, :nip, :bank, :bank_account_nr, :city, :reservation_id)
       end
     end
 end

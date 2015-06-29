@@ -5,6 +5,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'apipie-rails'
 gem "default_value_for", "~> 3.0.0"
+gem 'bcrypt', '~> 3.1.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
